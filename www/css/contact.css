@@ -483,6 +483,26 @@
         font-size: 1.3rem;
     }
 }
+
+/* Map Links */
+.map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.8rem;
+    background: linear-gradient(135deg, #d4a574, #e8c199);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.map-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
     background: white;
     padding: 2rem;
     border-radius: var(--border-radius);

@@ -2,26 +2,40 @@
 // RT TOURISTIQUE - RESERVATION PAGE SCRIPT
 // ==========================================
 
+// Initialize EmailJS
+emailjs.init("YOUR_PUBLIC_KEY");
+
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('reservationForm');
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
 
-    // Mobile menu toggle
+    // Mobile menu toggle - Fixed hamburger
     if (hamburger) {
-        hamburger.addEventListener('click', function() {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
             navMenu.classList.toggle('active');
+            this.classList.toggle('active');
         });
 
         const navLinks = navMenu.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
             });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.nav-container')) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
         });
     }
 
-    // Form submission
+    // Form submission with EmailJS
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -58,6 +72,40 @@ document.addEventListener('DOMContentLoaded', function() {
                 showNotification('Veuillez accepter les conditions', 'error');
                 return;
             }
+
+            // Send email with EmailJS
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Réservation en cours...';
+
+            emailjs.send("service_rttouristique", "template_reservation", {
+                from_name: formData.fullName,
+                from_email: formData.email,
+                phone_number: formData.phone,
+                service_type: formData.serviceType,
+                pickup_date: formData.pickupDate,
+                pickup_time: formData.pickupTime,
+                pickup_location: formData.pickupLocation,
+                dropoff_location: formData.dropoffLocation,
+                vehicle_type: formData.vehicleType,
+                passengers: formData.passengers,
+                notes: formData.notes,
+                to_email: "info@rttouristique.com"
+            }).then(function(response) {
+                console.log('Réservation confirmée:', response.status, response.text);
+                showNotification('Réservation envoyée avec succès ! Vous recevrez une confirmation par email.', 'success');
+                form.reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }).catch(function(error) {
+                console.error('Erreur lors de la réservation:', error);
+                showNotification('Erreur lors de la réservation. Veuillez réessayer plus tard.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            });
+        });
+    }
 
             // Simulate form submission
             const submitBtn = form.querySelector('button[type="submit"]');

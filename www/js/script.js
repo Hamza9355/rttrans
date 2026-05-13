@@ -138,7 +138,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (hamburger) {
-        hamburger.addEventListener('click', function() {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
             navMenu.classList.toggle('active');
             this.classList.toggle('active');
         });

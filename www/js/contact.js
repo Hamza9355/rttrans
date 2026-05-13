@@ -2,26 +2,40 @@
 // RT TOURISTIQUE - CONTACT PAGE SCRIPT
 // ==========================================
 
+// Initialize EmailJS
+emailjs.init("YOUR_PUBLIC_KEY");
+
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
 
-    // Mobile menu toggle
+    // Mobile menu toggle - Fixed hamburger
     if (hamburger) {
-        hamburger.addEventListener('click', function() {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
             navMenu.classList.toggle('active');
+            this.classList.toggle('active');
         });
 
         const navLinks = navMenu.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
             });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.nav-container')) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
         });
     }
 
-    // Form submission
+    // Form submission with EmailJS
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -53,27 +67,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Simulate form submission
+            // Send email with EmailJS
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.disabled = true;
             submitBtn.textContent = 'Envoi en cours...';
 
-            // Simulate API call
-            setTimeout(() => {
-                // Here you would send data to your backend
-                console.log('Message de contact soumis:', formData);
-                
-                // Show success message
+            emailjs.send("service_rttouristique", "template_contact", {
+                from_name: formData.name,
+                from_email: formData.email,
+                phone_number: formData.phone,
+                subject: formData.subject,
+                message: formData.message,
+                to_email: "info@rttouristique.com"
+            }).then(function(response) {
+                console.log('Email envoyé avec succès:', response.status, response.text);
                 showNotification('Message envoyé avec succès ! Nous vous répondrons sous peu.', 'success');
-                
-                // Reset form
                 form.reset();
-
-                // Restore button
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
-            }, 1500);
+            }).catch(function(error) {
+                console.error('Erreur lors de l\'envoi:', error);
+                showNotification('Erreur lors de l\'envoi. Veuillez réessayer plus tard.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            });
         });
     }
 
