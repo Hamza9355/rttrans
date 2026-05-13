@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez RT Touristique pour vos besoins de transport">
+    <title>Contact - RT Touristique</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="RT Touristique Logo" class="logo-img">
+                <span>RT Touristique</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#pourquoi">Pourquoi Nous</a></li>
+                <li><a href="reservation.html" class="btn-nav">Réserver</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contactez-Nous</h1>
+            <p>Nous sommes à votre écoute pour répondre à vos besoins</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2>Nos Coordonnées</h2>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Adresse</h3>
+                        <p>Business Center Orchidées (Bâtiment A)<br>
+                        Mohammedia, Maroc</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Téléphone</h3>
+                        <p><a href="tel:+212xxxxxxxxx">+212 5XX XXX XXX</a><br>
+                        <small>Disponible 24/7</small></p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@rttouristique.com">info@rttouristique.com</a><br>
+                        <small>Réponse en moins de 2h</small></p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p><a href="https://wa.me/212xxxxxxxxx" target="_blank">+212 5XX XXX XXX</a><br>
+                        <small>Messages instantanés</small></p>
+                    </div>
+
+                    <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Horaires d'Ouverture</h3>
+                    <div class="hours">
+                        <p><strong>Lundi - Vendredi:</strong> 08:00 - 20:00</p>
+                        <p><strong>Samedi:</strong> 09:00 - 18:00</p>
+                        <p><strong>Dimanche:</strong> 10:00 - 17:00</p>
+                        <p style="margin-top: 1rem;"><strong>Service d'Urgence:</strong> 24/7/365</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2>Envoyez-nous un Message</h2>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="contactName">Nom Complet *</label>
+                            <input type="text" id="contactName" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactEmail">Email *</label>
+                            <input type="email" id="contactEmail" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactPhone">Téléphone</label>
+                            <input type="tel" id="contactPhone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactSubject">Sujet *</label>
+                            <select id="contactSubject" name="subject" required>
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="information">Demande d'Information</option>
+                                <option value="reservation">Problème de Réservation</option>
+                                <option value="quotation">Demande de Devis</option>
+                                <option value="complaint">Réclamation</option>
+                                <option value="partnership">Partenariat</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMessage">Message *</label>
+                            <textarea id="contactMessage" name="message" rows="5" required></textarea>
+                        </div>
+
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="contactTerms" name="terms" required>
+                            <label for="contactTerms">J'accepte la politique de confidentialité *</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">Envoyer le Message</button>
+                        <p class="form-note">Nous vous répondrons dans les plus brefs délais.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2>Notre Localisation</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.8169387650023!2d-7.645!3d33.768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDQ2JzA0LjgiTiA3wrA0MCczMS4yIlc!5e0!3m2!1sfr!2sma!4v1234567890" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="quick-actions">
+        <div class="container">
+            <h2>Actions Rapides</h2>
+            <div class="actions-grid">
+                <a href="reservation.html" class="action-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Réserver Maintenant</h3>
+                    <p>Accédez à notre système de réservation</p>
+                </a>
+                <a href="tel:+212xxxxxxxxx" class="action-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Appeler Directement</h3>
+                    <p>Parlez à un agent immédiatement</p>
+                </a>
+                <a href="https://wa.me/212xxxxxxxxx" class="action-card" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>Message WhatsApp</h3>
+                    <p>Messagerie instantanée disponible</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>RT Touristique</h4>
+                    <p>Business Center Orchidées (Bâtiment A)<br>
+                    Mohammedia, Maroc</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="reservation.html">Réservation</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +212 5XX XXX XXX<br>
+                    📧 info@rttouristique.com<br>
+                    ⏰ 24/7 Disponible</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 RT Touristique. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

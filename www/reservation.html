@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Réserver votre transport de prestige avec RT Touristique">
+    <title>Réservation - RT Touristique</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/reservation.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="RT Touristique Logo" class="logo-img">
+                <span>RT Touristique</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#pourquoi">Pourquoi Nous</a></li>
+                <li><a href="reservation.html" class="btn-nav">Réserver</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Réservation Sécurisée</h1>
+            <p>Sécurisez votre transport de prestige en quelques étapes</p>
+        </div>
+    </section>
+
+    <!-- Reservation Form Section -->
+    <section class="reservation-section">
+        <div class="container">
+            <div class="reservation-container">
+                <!-- Form -->
+                <div class="reservation-form">
+                    <h2>Vos Informations</h2>
+                    <form id="reservationForm">
+                        <!-- Passager Info -->
+                        <div class="form-group">
+                            <label for="fullName">Nom Complet *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+
+                        <!-- Trajet Info -->
+                        <h3 style="margin-top: 2rem;">Détails du Trajet</h3>
+
+                        <div class="form-group">
+                            <label for="serviceType">Type de Service *</label>
+                            <select id="serviceType" name="serviceType" required>
+                                <option value="">Sélectionnez un service</option>
+                                <option value="airport-transfer">Transfer Aéroportuaire</option>
+                                <option value="circuit-tour">Circuit Touristique</option>
+                                <option value="corporate">Mise à Disposition Corporate</option>
+                                <option value="event">Groupes et Événements</option>
+                                <option value="vip">VIP Security Escort</option>
+                                <option value="custom">Expérience sur Mesure</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pickupDate">Date de Départ *</label>
+                                <input type="date" id="pickupDate" name="pickupDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pickupTime">Heure de Départ *</label>
+                                <input type="time" id="pickupTime" name="pickupTime" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pickupLocation">Lieu de Départ *</label>
+                            <input type="text" id="pickupLocation" name="pickupLocation" placeholder="Adresse ou lieu" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dropoffLocation">Destination *</label>
+                            <input type="text" id="dropoffLocation" name="dropoffLocation" placeholder="Adresse ou lieu" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vehicleType">Type de Véhicule *</label>
+                            <select id="vehicleType" name="vehicleType" required>
+                                <option value="">Sélectionnez un véhicule</option>
+                                <option value="berline">Berline de Luxe (4-5 passagers)</option>
+                                <option value="van">Van Spacieux (6-7 passagers)</option>
+                                <option value="minibus">Minibus (8-15 passagers)</option>
+                                <option value="autocar">Autocar Premium (30-55 passagers)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="passengers">Nombre de Passagers *</label>
+                            <input type="number" id="passengers" name="passengers" min="1" max="55" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Notes Spéciales</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Besoins particuliers, demandes spéciales..."></textarea>
+                        </div>
+
+                        <!-- Devis Estimation -->
+                        <div class="estimation-box">
+                            <h3>Estimation du Devis</h3>
+                            <div class="devis-row">
+                                <span>Distance estimée:</span>
+                                <span id="estimatedDistance">-</span>
+                            </div>
+                            <div class="devis-row">
+                                <span>Prix estimé:</span>
+                                <span id="estimatedPrice">-</span>
+                            </div>
+                        </div>
+
+                        <!-- Conditions -->
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">J'accepte les conditions d'utilisation et la politique de confidentialité *</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">Confirmer la Réservation</button>
+                        <p class="form-note">Vous recevrez une confirmation par email sous peu.</p>
+                    </form>
+                </div>
+
+                <!-- Sidebar Info -->
+                <div class="reservation-sidebar">
+                    <div class="info-card">
+                        <h3>Besoin d'aide ?</h3>
+                        <p>Notre équipe est disponible 24/7 pour répondre à vos questions.</p>
+                        <div class="contact-quick">
+                            <a href="tel:+212xxxxxxxxx" class="quick-link">
+                                <i class="fas fa-phone"></i> +212 5XX XXX XXX
+                            </a>
+                            <a href="mailto:info@rttouristique.com" class="quick-link">
+                                <i class="fas fa-envelope"></i> info@rttouristique.com
+                            </a>
+                            <a href="https://wa.me/212xxxxxxxxx" class="quick-link" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Avantages</h3>
+                        <ul class="advantages">
+                            <li><i class="fas fa-check-circle"></i> Réservation Rapide</li>
+                            <li><i class="fas fa-check-circle"></i> Paiement Sécurisé</li>
+                            <li><i class="fas fa-check-circle"></i> Confirmation par Email</li>
+                            <li><i class="fas fa-check-circle"></i> Support 24/7</li>
+                            <li><i class="fas fa-check-circle"></i> Annulation Gratuite</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card highlight">
+                        <h3>Tarifs Spéciaux</h3>
+                        <p>Bénéficiez de réductions pour :</p>
+                        <ul class="advantages">
+                            <li>📅 Réservations longue durée</li>
+                            <li>👥 Groupes de 5+ passagers</li>
+                            <li>🔄 Clients réguliers</li>
+                        </ul>
+                        <button class="btn btn-secondary" onclick="document.getElementById('email').focus();">Demander Devis Personnalisé</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>Questions Fréquentes</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>Quel est le délai de réservation ?</h4>
+                    <p>Nous acceptons les réservations jusqu'à 48h à l'avance. Pour des demandes d'urgence, contactez-nous directement.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Puis-je annuler ma réservation ?</h4>
+                    <p>Oui, annulation gratuite jusqu'à 24h avant la date prévue. Au-delà, des frais peuvent s'appliquer.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Comment est calculé le prix ?</h4>
+                    <p>Le prix dépend de la distance, du type de véhicule et de l'heure de la réservation. Une estimation vous sera fournie.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Acceptez-vous les cartes de crédit ?</h4>
+                    <p>Oui, nous acceptons toutes les cartes de crédit principales et les virements bancaires.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>RT Touristique</h4>
+                    <p>Business Center Orchidées (Bâtiment A)<br>
+                    Mohammedia, Maroc</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="reservation.html">Réservation</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +212 5XX XXX XXX<br>
+                    📧 info@rttouristique.com<br>
+                    ⏰ 24/7 Disponible</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 RT Touristique. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/reservation.js"></script>
+</body>
+</html>
