@@ -491,7 +491,7 @@
     gap: 0.4rem;
     padding: 0.5rem 0.8rem;
     background: linear-gradient(135deg, #d4a574, #e8c199);
-    color: white;
+    color: white !important;
     text-decoration: none;
     border-radius: 6px;
     font-size: 0.85rem;
@@ -499,9 +499,14 @@
     transition: all 0.3s ease;
 }
 
+.map-link i {
+    color: white;
+}
+
 .map-link:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+    color: white !important;
 }
     background: white;
     padding: 2rem;
