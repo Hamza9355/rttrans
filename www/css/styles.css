@@ -39,12 +39,12 @@ body {
 
 /* NAVIGATION */
 .navbar {
-    background: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    background: #3a3a4e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .nav-container {
@@ -73,7 +73,7 @@ body {
 .logo-text {
     font-family: 'Playfair Display', serif;
     font-size: 1.4rem;
-    color: var(--navy);
+    color: var(--gold);
     letter-spacing: 1px;
 }
 
@@ -89,7 +89,7 @@ body {
 }
 
 .nav-menu a {
-    color: var(--text);
+    color: #e0e0e0;
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem;
