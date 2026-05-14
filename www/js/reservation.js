@@ -3,7 +3,7 @@
 // ==========================================
 
 // Initialize EmailJS
-emailjs.init("YOUR_PUBLIC_KEY");
+emailjs.init("service_3dqequgs");
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('reservationForm');
@@ -105,67 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 submitBtn.textContent = originalText;
             });
         });
-    }
-
-            // Simulate form submission
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Traitement...';
-
-            // Simulate API call (replace with actual backend call)
-            setTimeout(() => {
-                // Here you would send data to your backend
-                console.log('Réservation soumise:', formData);
-                
-                // Show success message
-                showNotification('Réservation confirmée ! Un email de confirmation a été envoyé.', 'success');
-                
-                // Reset form
-                form.reset();
-                document.getElementById('estimatedDistance').textContent = '-';
-                document.getElementById('estimatedPrice').textContent = '-';
-
-                // Restore button
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
-
-                // Optionally redirect after success
-                setTimeout(() => {
-                    // window.location.href = 'index.html';
-                }, 2000);
-            }, 1500);
-        });
-
-        // Auto-calculate estimation
-        const pickupLocation = document.getElementById('pickupLocation');
-        const dropoffLocation = document.getElementById('dropoffLocation');
-        const vehicleType = document.getElementById('vehicleType');
-
-        function updateEstimation() {
-            if (pickupLocation.value && dropoffLocation.value) {
-                // Simulate distance calculation (replace with real calculation)
-                const distance = Math.floor(Math.random() * 100) + 10;
-                document.getElementById('estimatedDistance').textContent = distance.toFixed(1) + ' km';
-
-                // Calculate price based on vehicle type
-                let basePricePerKm = 2;
-                const vehicleMultipliers = {
-                    'berline': 1.5,
-                    'van': 2,
-                    'minibus': 2.5,
-                    'autocar': 3
-                };
-
-                const multiplier = vehicleMultipliers[vehicleType.value] || 1;
-                const price = distance * basePricePerKm * multiplier;
-                document.getElementById('estimatedPrice').textContent = price.toFixed(2) + ' MAD';
-            }
-        }
-
-        pickupLocation.addEventListener('change', updateEstimation);
-        dropoffLocation.addEventListener('change', updateEstimation);
-        vehicleType.addEventListener('change', updateEstimation);
     }
 
     // Set minimum date to today
