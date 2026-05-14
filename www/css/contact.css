@@ -344,7 +344,7 @@
     text-align: center;
     color: white;
     margin-bottom: 3rem;
-    positions: relative;
+    position: relative;
     z-index: 1;
     letter-spacing: 1px;
 }
@@ -508,6 +508,8 @@
     box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
     color: white !important;
 }
+
+.action-card {
     background: white;
     padding: 2rem;
     border-radius: var(--border-radius);
